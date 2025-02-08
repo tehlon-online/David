@@ -62,7 +62,7 @@
         .game-content {
             height: auto;
         }
-        /* Both gifs are hidden by default */
+        /* Hide both GIFs by default */
         #celebration-gif, #losing-gif {
             display: none;
             width: 300px;
@@ -74,17 +74,17 @@
 <body>
 
     <!-- Winning Audio -->
-    <audio id="myAudio">
-        <source src="Sonic the Hedgehog-Title Theme.mp3" type="audio/mpeg">
+    <audio id="winningAudio">
+        <source src="And His Name is JOHN CENA - Sound Effect (HD).mp3" type="audio/mpeg">
     </audio>
     <!-- Losing Audio -->
     <audio id="losingAudio">
-        <source src="Sonic 1 Music_ Game Over.mp3" type="audio/mpeg">
+        <source src="john-cena-sad-edit-forever-young-ft-john-cena-retirement-from-wwe-128-ytshorts.savetube.me.mp3" type="audio/mpeg">
     </audio>
 
     <h1 style="margin-bottom: 0; padding-left: 30px;">Tehlon.com</h1>
     <p style="font-size: 15px; margin-top: 0; padding-left: 30px;">
-        <em>This website is a really dumb project for fun</em>
+        <em>This website is a really dumb project just for fun</em>
     </p>
 
     <div id="game-container">
@@ -98,19 +98,24 @@
             <button onclick="guessLetter()">Guess</button>
             <p id="message"></p>
         </div>
-        <div id="footer-text">Added 2.7.25</div>
+        <div id="footer-text">Added 2.6.25</div>
         <!-- Winning GIF Container -->
         <div id="celebration-gif-container">
-            <img id="celebration-gif" src="Sonic Thumbs up.gif" alt="Sonic Thumbs Up">
+            <img id="celebration-gif" src="FWUuy7.gif" alt="John Cena Dancing">
         </div>
         <!-- Losing GIF Container -->
         <div id="losing-gif-container">
-            <img id="losing-gif" src="sanic-gif-roll.gif" alt="Sanic Gif Roll">
+            <img id="losing-gif" src="john-cena-sad.gif" alt="John Cena Losing">
         </div>
     </div>
 
+    <!-- David Link -->
+    <p style="text-align: center; font-size: 14px; margin-top: 20px;">
+        <a href="https://tehlon-online.github.io/David/" target="_blank">David click here</a>
+    </p>
+
     <script>
-        const answer = "SONIC AND TAILS";
+        const answer = "U CANT SEE ME";
         let guessedLetters = [];
         let wrongLetters = [];
 
@@ -129,10 +134,8 @@
             }
 
             (answer.includes(letterInput) ? guessedLetters : wrongLetters).push(letterInput);
-
             document.getElementById("letter").value = "";
             document.getElementById("wrong-guesses").textContent = wrongLetters.join(", ");
-            
             displayWord();
             adjustGameContainerHeight();
             checkGameStatus();
@@ -151,14 +154,12 @@
 
         function checkGameStatus() {
             if (!document.getElementById("word").textContent.includes("_")) {
-                // Player wins
                 document.getElementById("message").textContent = `You win! The word was: ${answer}`;
-                document.getElementById("myAudio").play(); // Play winning audio
+                document.getElementById("winningAudio").play();
                 document.getElementById("celebration-gif").style.display = "block";
             } else if (wrongLetters.length >= 6) {
-                // Player loses
                 document.getElementById("message").textContent = `You lose! The word was: ${answer}`;
-                document.getElementById("losingAudio").play(); // Play losing audio
+                document.getElementById("losingAudio").play();
                 document.getElementById("losing-gif").style.display = "block";
             }
         }
