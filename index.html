@@ -130,7 +130,16 @@
     </div>
 
     <script>
-        const answer = "SONIC AND TAILS";
+        const phrases = [
+            "GOTTA GO FAST", "GREEN HILL ZONE", "SONIC THE HEDGEHOG", "TURBO SPEED", "RING COLLECTOR",
+            "TAILS AND KNUCKLES", "SUPER SONIC", "CHAOS EMERALDS", "DR ROBOTNIK", "EGGMAN EMPIRE",
+            "CHEESY CHILI DOGS", "METAL SONIC", "SHADOW THE HEDGEHOG", "CITY ESCAPE", "EMERALD HILL",
+            "SONIC BOOM", "BLUE BLUR", "SPRING YARD ZONE", "SPEED DASH", "SONIC ADVENTURE",
+            "SPEED FREAK", "SONIC'S ADVENTURE", "RING MASTER", "FINAL FIGHT", "HOMING ATTACK",
+            "TURBO SPIN", "SONIC GENERATIONS", "FINAL ZONE", "CHAOS CONTROL", "TIME ATTACK"
+        ];
+        
+        const answer = phrases[Math.floor(Math.random() * phrases.length)];
         let guessedLetters = [];
         let wrongLetters = [];
 
